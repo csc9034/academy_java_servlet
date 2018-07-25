@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<!-- mybatis 에서 SQL 작성하는 문서 -->
+
+<mapper namespace="shop.mapper.ProductMapper">
+	<select id="selectAll" resultType="Product">
+		SELECT p.prodcode
+		     , p.prodname
+			 , p.price   
+			 , p.quantity
+	      FROM product p
+	</select>
+	
+	<select id="selectOne" parameterType="Product" resultType="Product">
+		SELECT p.prodcode
+		     , p.prodname
+			 , p.price   
+			 , p.quantity
+	      FROM product p
+ 		 WHERE p.prodcode = #{prodCode}
+ 		<!-- #{value} 는 prepared에서 ?와 같은 역할
+ 			 쿼리 실행 시 전달 값이 1개이며
+ 			 기본형 / String 형일 때만 사용 가능한 키워드 -->
+	</select>
+	
+	<insert id="insert" parameterType="Product">
+			INSERT INTO product(prodcode, prodname, price, quantity)
+		    VALUES (#{prodCode}, #{prodName}, #{price}, #{quantity})
+	</insert>
+	
+	<update id="update" parameterType="Product">
+		UPDATE product p    
+		   SET p.PRODNAME = #{prodName}
+			 , p.PRICE    = #{price}
+			 , p.QUANTITY = #{quantity}
+			 , p.MODDATE  = sysdate
+	     WHERE p.PRODCODE = #{prodCode}
+	</update>
+	
+	<delete id="delete" parameterType="Product">
+		DELETE FROM product p
+		<if test="prodCode != null">
+		 WHERE p.PRODCODE = #{prodCode}
+		</if>
+	</delete>
+
+	<select id="isExists" parameterType="Product" resultType="string">
+		SELECT p.prodcode
+		  FROM product p 
+	     WHERE p.prodcode = #{prodCode}
+	</select>	
+</mapper>
