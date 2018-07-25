@@ -57,10 +57,13 @@ public class RegisterServlet extends HttpServlet {
 		// (1) 기본 : sysout 출력
 		System.out.println("등록된 사용자 이름 : " + username);
 		System.out.println("등록된 사용자 비밀번호 : " + password);
+		
 		if (hobbies != null) {
+			
 			for (String hobby : hobbies) {
 				System.out.println("등록된 취미 : " + hobby);
 			}
+	
 		} else {
 			System.out.println("등록된 취미가 존재하지 않습니다. <br/>");
 
@@ -72,14 +75,16 @@ public class RegisterServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		out.println("<HTML><BODY>");
 		out.println("등록된 사용자 이름 : " + username + "<br/>");
-		out.println("등록된 사용자 비밀번호 : " + password);
+		out.println("등록된 사용자 비밀번호 : " + password + "<br/>");
 
 		// <input> 중에서 type 이 checkbox 인 경우는
 		// 아무것도 선택하지 않은 상황에 대한 고려가 항상 있어야 한다.
 		if (hobbies != null) {
+			
 			for (String hobby : hobbies) {
 				out.println("등록된 취미 : " + hobby + "<br/>");
 			}
+		
 		} else {
 			out.println("등록된 취미가 존재하지 않습니다. <br/>");
 		}
