@@ -45,8 +45,9 @@ public class ListServlet extends HttpServlet {
 		
 		// 4. 조회 결과가 추가된 request 를
 		//	  적절한 목록 뷰 (list view) 로 전달 (페이지 이동)
+		String view = "listJsp";
 		RequestDispatcher reqd;
-		reqd = request.getRequestDispatcher("listJsp");
+		reqd = request.getRequestDispatcher(view);
 		
 		reqd.forward(request, response);
 	}

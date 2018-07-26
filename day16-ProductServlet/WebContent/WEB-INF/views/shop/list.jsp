@@ -23,6 +23,7 @@
 		<th>제품 이름</th>
 		<th>가격</th>
 		<th>재고</th>
+		<th></th>
 	</tr>
 	<c:if test="${not empty products}">
 	<c:forEach items="${products}" var="product">
@@ -33,13 +34,19 @@
 				${product.prodName}
 				</a>
 			</td>
-			<td>${product.price }</td>
+			<td><fmt:formatNumber value="${product.price }" type="currency" currencySymbol="₩" currencyCode="KRW"/></td>
 			<td>${product.quantity }</td>
+			<td><a href="delete?prodCode=${product.prodCode }">삭제</a></td>
 		</tr>
 	
 	
 	</c:forEach>
 	</c:if>
+		<tr>
+			<td colspan="5" style="text-align:right;"><a href="insert">신규 목록 추가</a> 
+							<a href="menu">메뉴로 이동..</a></td>
+			
+		</tr>
 	<c:if test="${empty products }">
 	
 	<tr>

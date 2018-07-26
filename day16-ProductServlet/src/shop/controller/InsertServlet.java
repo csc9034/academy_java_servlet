@@ -1,6 +1,7 @@
 package shop.controller;
 import static shop.factory.WarehouseFactory.getWarehouse;
 
+
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -10,7 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jdk.nashorn.internal.ir.RuntimeNode.Request;
 import shop.dao.GeneralWarehouse;
 import shop.exception.DuplicateException;
 import shop.vo.Product;
@@ -27,7 +27,7 @@ import shop.vo.Product;
  *
  */
 @WebServlet("/insert")
-public class insertServlet extends HttpServlet {
+public class InsertServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**

@@ -2,6 +2,7 @@ package shop.controller;
 
 import static shop.factory.WarehouseFactory.getWarehouse;
 
+
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -22,7 +23,7 @@ import shop.vo.Product;
  *
  */
 @WebServlet("/detail")
-public class detailServlet extends HttpServlet {
+public class DetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)

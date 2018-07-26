@@ -1,7 +1,7 @@
 package shop.mapper;
 
 import java.util.List;
-import java.util.Map;
+
 import shop.vo.Product;
 
 /**
