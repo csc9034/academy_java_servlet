@@ -2,6 +2,7 @@ package shop.controller;
 
 import static shop.factory.WarehouseFactory.getWarehouse;
 
+
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
